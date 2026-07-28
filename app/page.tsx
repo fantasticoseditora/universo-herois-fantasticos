@@ -138,7 +138,7 @@ const stories = [
     icon: "cat",
     image: "/images/stories/14-gata-de-rua.webp",
     title: "Uma Gata de Rua",
-    author: "Thalles Weichart",
+    author: "Thales Waichert",
     tag: "Aventura juvenil • Autismo",
     synopsis:
       "Quando o mundo fica barulhento demais, Catarina se transforma numa gata vira-lata. O poder que parecia apenas uma forma de desaparecer será sua melhor chance de encontrar quem ninguém mais procura.",
