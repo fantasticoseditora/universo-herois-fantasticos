@@ -1,6 +1,9 @@
 import { readFile, writeFile } from "node:fs/promises";
 
 const CSS_MARKER = "/* UHF footer layout refinement */";
+const NEXT_FAVICON = "/images/uhf-logo-cutout.png";
+const STATIC_FAVICON =
+  "/universo-herois-fantasticos/public/images/uhf-logo-cutout.png";
 
 const cssPatch = `
 
@@ -139,11 +142,56 @@ async function patchStaticPage() {
   return true;
 }
 
+async function patchNextFavicon() {
+  const path = "app/layout.tsx";
+  const current = await readFile(path, "utf8");
+  if (
+    current.includes(`icon: "${NEXT_FAVICON}"`) &&
+    current.includes(`shortcut: "${NEXT_FAVICON}"`)
+  ) {
+    return false;
+  }
+
+  const needle = `    icon: "/favicon.svg",\n    shortcut: "/favicon.svg",`;
+  const replacement = `    icon: "${NEXT_FAVICON}",\n    shortcut: "${NEXT_FAVICON}",\n    apple: "${NEXT_FAVICON}",`;
+
+  if (!current.includes(needle)) {
+    throw new Error("Configuração de favicon não encontrada em app/layout.tsx.");
+  }
+
+  await writeFile(path, current.replace(needle, replacement), "utf8");
+  return true;
+}
+
+async function patchStaticFavicon() {
+  const path = "index.html";
+  const current = await readFile(path, "utf8");
+  if (current.includes(`rel="icon" type="image/png" href="${STATIC_FAVICON}"`)) {
+    return false;
+  }
+
+  const needle =
+    '    <link rel="icon" href="/universo-herois-fantasticos/public/favicon.svg">';
+  const replacement =
+    `    <link rel="icon" type="image/png" href="${STATIC_FAVICON}">\n` +
+    `    <link rel="shortcut icon" type="image/png" href="${STATIC_FAVICON}">\n` +
+    `    <link rel="apple-touch-icon" href="${STATIC_FAVICON}">`;
+
+  if (!current.includes(needle)) {
+    throw new Error("Favicon estático não encontrado em index.html.");
+  }
+
+  await writeFile(path, current.replace(needle, replacement), "utf8");
+  return true;
+}
+
 const results = await Promise.all([
   appendCssPatch("app/globals.css"),
   appendCssPatch("style.css"),
   patchSourcePage(),
   patchStaticPage(),
+  patchNextFavicon(),
+  patchStaticFavicon(),
 ]);
 
 console.log(`Arquivos alterados: ${results.filter(Boolean).length}`);
