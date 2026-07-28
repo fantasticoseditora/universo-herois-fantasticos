@@ -636,6 +636,7 @@ export default function Home() {
               <p>Livro físico</p>
               <strong>Universo para ter na estante</strong>
               <span>Impressão sob demanda pela UICLAP</span>
+              <span className="physical-price">R$ 72,33</span>
               <a
                 className="button button-primary"
                 href={physicalBookUrl}
