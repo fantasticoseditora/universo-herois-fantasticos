@@ -741,7 +741,7 @@ export default function Home() {
             height="720"
           />
         </a>
-        <a href={catalogUrl}>Conheça o catálogo ↗</a>
+        <a className="footer-catalog" href={catalogUrl}>Conheça o catálogo ↗</a>
         <p className="footer-support">
           Suporte e problemas com arquivos: {" "}
           <a href="mailto:fantasticoseditora@gmail.com">fantasticoseditora@gmail.com</a>
