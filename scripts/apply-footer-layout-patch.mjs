@@ -4,6 +4,14 @@ const CSS_MARKER = "/* UHF footer layout refinement */";
 const NEXT_FAVICON = "/images/uhf-logo-cutout.png";
 const STATIC_FAVICON =
   "/universo-herois-fantasticos/public/images/uhf-logo-cutout.png";
+const AUTHOR_NAME = "Thales Waichert";
+const AUTHOR_NAME_VARIANTS = [
+  "Thalles Weichart",
+  "Thales Weichart",
+  "Thales Weichert",
+  "Thalles Weichert",
+  "Thalles Waichert",
+];
 
 const cssPatch = `
 
@@ -185,6 +193,19 @@ async function patchStaticFavicon() {
   return true;
 }
 
+async function patchAuthorName(path) {
+  const current = await readFile(path, "utf8");
+  let updated = current;
+
+  for (const variant of AUTHOR_NAME_VARIANTS) {
+    updated = updated.replaceAll(variant, AUTHOR_NAME);
+  }
+
+  if (updated === current) return false;
+  await writeFile(path, updated, "utf8");
+  return true;
+}
+
 const results = await Promise.all([
   appendCssPatch("app/globals.css"),
   appendCssPatch("style.css"),
@@ -192,6 +213,8 @@ const results = await Promise.all([
   patchStaticPage(),
   patchNextFavicon(),
   patchStaticFavicon(),
+  patchAuthorName("app/page.tsx"),
+  patchAuthorName("index.html"),
 ]);
 
 console.log(`Arquivos alterados: ${results.filter(Boolean).length}`);
