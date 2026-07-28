@@ -3,6 +3,8 @@ import { verifyApprovedEbookPayment } from "@/lib/mercado-pago";
 
 export const dynamic = "force-dynamic";
 
+const SUPPORT_EMAIL = "fantasticoseditora@gmail.com";
+
 type SearchParams = Promise<
   Record<string, string | string[] | undefined>
 >;
@@ -20,6 +22,9 @@ export default async function PagamentoAprovado({
 
   const token =
     approved && paymentId ? await createDownloadToken(paymentId) : null;
+  const supportSubject = paymentId
+    ? `Suporte ao download do UHF — transação ${paymentId}`
+    : "Suporte ao download do UHF";
 
   return (
     <main className="payment-page">
@@ -55,6 +60,23 @@ export default async function PagamentoAprovado({
             Verificar novamente
           </a>
         )}
+        <p className="payment-support">
+          <strong>Problemas com o download ou com o arquivo?</strong>
+          <br />
+          Envie um e-mail para{" "}
+          <a
+            href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(supportSubject)}`}
+          >
+            {SUPPORT_EMAIL}
+          </a>
+          , informando o número da transação.
+          {paymentId ? (
+            <>
+              <br />
+              Número da transação: <strong>{paymentId}</strong>
+            </>
+          ) : null}
+        </p>
         <a className="payment-return" href="/">
           Voltar ao Universo Heróis Fantásticos
         </a>
