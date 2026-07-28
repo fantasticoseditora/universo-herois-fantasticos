@@ -2493,3 +2493,20 @@ footer > a:last-child {
   font-weight: 700;
 }
 
+/* UHF footer support */
+.footer-support {
+  flex-basis: 100%;
+  margin: 8px 0 0;
+  text-align: center;
+  color: rgba(255, 253, 247, 0.74);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-support a {
+  color: var(--gold-light);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+

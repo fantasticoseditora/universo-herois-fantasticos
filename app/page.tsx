@@ -742,6 +742,10 @@ export default function Home() {
           />
         </a>
         <a href={catalogUrl}>Conheça o catálogo ↗</a>
+        <p className="footer-support">
+          Suporte e problemas com arquivos: {" "}
+          <a href="mailto:fantasticoseditora@gmail.com">fantasticoseditora@gmail.com</a>
+        </p>
       </footer>
     </main>
   );
