@@ -33,5 +33,5 @@ jobs:
             echo "Nenhuma alteração necessária."
             exit 0
           fi
-          git commit -m "Usa logo do UHF como favicon"
+          git commit -m "Corrige nome de Thales Waichert no site"
           git push
