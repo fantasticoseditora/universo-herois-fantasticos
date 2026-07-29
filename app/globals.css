@@ -410,8 +410,9 @@ a {
 
 .silhouette-winged {
   bottom: -31%;
-  filter: saturate(0.62) brightness(0.68) contrast(1.18);
-  opacity: 0.43;
+  filter: brightness(0) saturate(100%) invert(86%) sepia(38%) saturate(704%)
+    hue-rotate(352deg) brightness(104%) contrast(93%);
+  opacity: 0.34;
   right: -8%;
   transform: rotate(-4deg);
   width: min(43vw, 650px);
@@ -962,9 +963,10 @@ a {
 
 .silhouette-team {
   bottom: -37%;
-  filter: saturate(0.55) brightness(0.72) contrast(1.2);
+  filter: brightness(0) saturate(100%) invert(89%) sepia(20%) saturate(582%)
+    hue-rotate(175deg) brightness(105%) contrast(92%);
   left: -7%;
-  opacity: 0.3;
+  opacity: 0.27;
   transform: rotate(2deg);
   width: min(48vw, 690px);
 }
@@ -1280,9 +1282,10 @@ a {
 
 .silhouette-arrow {
   bottom: -24%;
-  filter: saturate(0.55) brightness(0.68) contrast(1.22);
+  filter: brightness(0) saturate(100%) invert(86%) sepia(38%) saturate(704%)
+    hue-rotate(352deg) brightness(104%) contrast(93%);
   left: -8%;
-  opacity: 0.34;
+  opacity: 0.3;
   transform: rotate(-6deg);
   width: min(47vw, 680px);
 }
@@ -1543,9 +1546,10 @@ a {
 
 .silhouette-occult {
   bottom: -27%;
-  filter: grayscale(0.34) saturate(0.48) brightness(0.67) contrast(1.22);
+  filter: brightness(0) saturate(100%) invert(17%) sepia(29%) saturate(946%)
+    hue-rotate(111deg) brightness(91%) contrast(96%);
   left: 2%;
-  opacity: 0.18;
+  opacity: 0.14;
   transform: rotate(3deg);
   width: min(34vw, 460px);
 }
@@ -1640,8 +1644,9 @@ a {
 
 .silhouette-trident {
   bottom: -47%;
-  filter: saturate(0.58) brightness(0.68) contrast(1.2);
-  opacity: 0.33;
+  filter: brightness(0) saturate(100%) invert(86%) sepia(38%) saturate(704%)
+    hue-rotate(352deg) brightness(104%) contrast(93%);
+  opacity: 0.3;
   right: -3%;
   transform: rotate(8deg);
   width: min(33vw, 440px);
@@ -1808,6 +1813,89 @@ footer > a:last-child {
   margin-top: 22px;
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.payment-recovery {
+  border-top: 1px solid rgba(13, 27, 23, 0.16);
+  margin-top: 30px;
+  padding-top: 26px;
+  text-align: left;
+}
+
+.payment-recovery > p {
+  color: #4c5b52;
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+
+.payment-recovery form {
+  display: grid;
+  gap: 8px;
+}
+
+.payment-recovery label {
+  color: var(--forest);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.payment-recovery form > div {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.payment-recovery input {
+  background: #fff;
+  border: 1px solid rgba(13, 27, 23, 0.3);
+  border-radius: 2px;
+  color: var(--forest);
+  font: inherit;
+  min-height: 52px;
+  padding: 10px 14px;
+  width: 100%;
+}
+
+.payment-recovery .button {
+  min-height: 52px;
+}
+
+.payment-support {
+  background: rgba(13, 27, 23, 0.055);
+  border-left: 3px solid var(--gold);
+  color: #4c5b52;
+  margin-top: 30px;
+  padding: 18px 20px;
+  text-align: left;
+}
+
+.payment-support strong {
+  color: var(--forest);
+  display: block;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.payment-support p {
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0 0 7px;
+}
+
+.payment-support a {
+  color: var(--forest);
+  font-size: 15px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .payment-recovery form > div {
+    grid-template-columns: 1fr;
+  }
 }
 
 .setup-panel {
@@ -2465,137 +2553,3 @@ footer > a:last-child {
     animation: none;
   }
 }
-
-/* UHF desktop silhouettes and physical price */
-@media (min-width: 641px) {
-  .silhouette-winged,
-  .silhouette-arrow,
-  .silhouette-trident {
-    filter: brightness(0) saturate(100%) invert(86%) sepia(38%) saturate(704%)
-      hue-rotate(352deg) brightness(104%) contrast(93%);
-  }
-
-  .silhouette-team {
-    filter: brightness(0) saturate(100%) invert(89%) sepia(20%) saturate(582%)
-      hue-rotate(175deg) brightness(105%) contrast(92%);
-  }
-
-  .silhouette-occult {
-    filter: brightness(0) saturate(100%) invert(17%) sepia(29%) saturate(946%)
-      hue-rotate(111deg) brightness(91%) contrast(96%);
-  }
-}
-
-.purchase-card .physical-price {
-  color: var(--forest);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 28px;
-  font-weight: 700;
-}
-
-/* UHF footer support */
-.footer-support {
-  flex-basis: 100%;
-  margin: 8px 0 0;
-  text-align: center;
-  color: rgba(255, 253, 247, 0.74);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.footer-support a {
-  color: var(--gold-light);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-/* UHF footer layout refinement */
-footer {
-  column-gap: clamp(24px, 4vw, 58px);
-  row-gap: 18px;
-}
-
-.footer-catalog {
-  align-items: center;
-  background: rgba(242, 212, 107, 0.08);
-  border: 1px solid rgba(242, 212, 107, 0.48);
-  color: var(--gold-light);
-  display: inline-flex;
-  font-size: 13px;
-  font-weight: 800;
-  gap: 10px;
-  justify-self: end;
-  letter-spacing: 0.04em;
-  padding: 13px 17px;
-  transition: background 180ms ease, border-color 180ms ease, color 180ms ease,
-    transform 180ms ease;
-}
-
-.footer-catalog:hover,
-.footer-catalog:focus-visible {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--ink);
-  outline: none;
-  transform: translateY(-2px);
-}
-
-.footer-support {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  grid-column: 1 / -1;
-  margin: 0;
-  padding-top: 16px;
-  width: 100%;
-}
-
-@media (min-width: 641px) and (max-width: 980px) {
-  footer {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-
-  .footer-brand {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .publisher-brand {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-  }
-
-  .footer-catalog {
-    grid-column: 1;
-    grid-row: 2;
-    justify-self: start;
-  }
-}
-
-@media (max-width: 640px) {
-  footer {
-    display: grid;
-    gap: 18px;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    padding: 28px 24px 118px;
-  }
-
-  .footer-brand,
-  .publisher-brand,
-  .footer-catalog {
-    justify-self: center;
-  }
-
-  .footer-catalog {
-    justify-content: center;
-    width: min(100%, 280px);
-  }
-
-  .footer-support {
-    grid-column: 1;
-    font-size: 13px;
-    overflow-wrap: anywhere;
-    padding-top: 16px;
-  }
-}
-
