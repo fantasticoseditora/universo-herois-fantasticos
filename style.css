@@ -408,8 +408,9 @@ a {
 
 .silhouette-winged {
   bottom: -31%;
-  filter: saturate(0.62) brightness(0.68) contrast(1.18);
-  opacity: 0.43;
+  filter: brightness(0) saturate(100%) invert(86%) sepia(38%) saturate(704%)
+    hue-rotate(352deg) brightness(104%) contrast(93%);
+  opacity: 0.34;
   right: -8%;
   transform: rotate(-4deg);
   width: min(43vw, 650px);
@@ -960,9 +961,10 @@ a {
 
 .silhouette-team {
   bottom: -37%;
-  filter: saturate(0.55) brightness(0.72) contrast(1.2);
+  filter: brightness(0) saturate(100%) invert(89%) sepia(20%) saturate(582%)
+    hue-rotate(175deg) brightness(105%) contrast(92%);
   left: -7%;
-  opacity: 0.3;
+  opacity: 0.27;
   transform: rotate(2deg);
   width: min(48vw, 690px);
 }
@@ -1278,9 +1280,10 @@ a {
 
 .silhouette-arrow {
   bottom: -24%;
-  filter: saturate(0.55) brightness(0.68) contrast(1.22);
+  filter: brightness(0) saturate(100%) invert(86%) sepia(38%) saturate(704%)
+    hue-rotate(352deg) brightness(104%) contrast(93%);
   left: -8%;
-  opacity: 0.34;
+  opacity: 0.3;
   transform: rotate(-6deg);
   width: min(47vw, 680px);
 }
@@ -1541,9 +1544,10 @@ a {
 
 .silhouette-occult {
   bottom: -27%;
-  filter: grayscale(0.34) saturate(0.48) brightness(0.67) contrast(1.22);
+  filter: brightness(0) saturate(100%) invert(17%) sepia(29%) saturate(946%)
+    hue-rotate(111deg) brightness(91%) contrast(96%);
   left: 2%;
-  opacity: 0.18;
+  opacity: 0.14;
   transform: rotate(3deg);
   width: min(34vw, 460px);
 }
@@ -1638,8 +1642,9 @@ a {
 
 .silhouette-trident {
   bottom: -47%;
-  filter: saturate(0.58) brightness(0.68) contrast(1.2);
-  opacity: 0.33;
+  filter: brightness(0) saturate(100%) invert(86%) sepia(38%) saturate(704%)
+    hue-rotate(352deg) brightness(104%) contrast(93%);
+  opacity: 0.3;
   right: -3%;
   transform: rotate(8deg);
   width: min(33vw, 440px);
